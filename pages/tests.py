@@ -35,7 +35,7 @@ class AboutPageTests(SimpleTestCase):
         self.response = self.client.get(url)
     
     def test_aboutpage_status_code(self):
-        self.assertEqual(self.respones.status_code, 200)
+        self.assertEqual(self.response.status_code, 200)
     
     def test_aboutpage_template(self):
         self.assertTemplateUsed(self.response, 'about.html')
@@ -50,7 +50,7 @@ class AboutPageTests(SimpleTestCase):
     
     def test_aboutpage_url_resolves_aboutpageview(self):
         view = resolve('/about/')
-        self.assertEqula(
+        self.assertEqual(
             view.func.__name__,
             AboutPageView.as_view().__name__
         )
